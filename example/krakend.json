@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "name": "TV shows gateway",
+    "port": 8080,
+    "cache_ttl": 3600,
+    "timeout": "3s",
+    "disable_rest": true,
+    "endpoints": [
+        {
+            "endpoint": "/show/{id}",
+            "backend": [
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/schedule/{id}.rss",
+                    "encoding": "rss",
+                    "group": "schedule",
+                    "whitelist": ["items", "title"]
+                },
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/{id}.rss",
+                    "encoding": "rss",
+                    "group": "available",
+                    "whitelist": ["items", "title"]
+                }
+            ]
+        }
+    ]
+}
