@@ -6,9 +6,7 @@ import (
 	"os"
 
 	"github.com/devopsfaith/krakend/config"
-	"github.com/devopsfaith/krakend/config/viper"
 	"github.com/devopsfaith/krakend/logging"
-	"github.com/devopsfaith/krakend/logging/gologging"
 	"github.com/devopsfaith/krakend/proxy"
 	"github.com/devopsfaith/krakend/router/gin"
 
@@ -24,7 +22,7 @@ func main() {
 
 	rss.Register()
 
-	parser := viper.New()
+	parser := config.NewParser()
 	serviceConfig, err := parser.Parse(*configFile)
 	if err != nil {
 		log.Fatal("ERROR:", err.Error())
@@ -34,7 +32,7 @@ func main() {
 		serviceConfig.Port = *port
 	}
 
-	logger, err := gologging.NewLogger(*logLevel, os.Stdout, "[KRAKEND]")
+	logger, err := logging.NewLogger(*logLevel, os.Stdout, "[KRAKEND]")
 	if err != nil {
 		log.Fatal("ERROR:", err.Error())
 	}
