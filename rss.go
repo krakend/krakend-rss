@@ -8,14 +8,16 @@ import (
 )
 
 func Register() error {
-	return encoding.Register(Name, func(_ bool) encoding.Decoder { return NewDecoder() })
+	return encoding.Register(Name, DecoderFactory)
 }
 
 // Name is the key for the rss encoding
 const Name = "rss"
 
+func DecoderFactory(_ bool) func(io.Reader, *map[string]interface{}) error { return NewDecoder() }
+
 // NewDecoder returns the RSS decoder
-func NewDecoder() encoding.Decoder {
+func NewDecoder() func(io.Reader, *map[string]interface{}) error {
 	fp := gofeed.NewParser()
 	return func(r io.Reader, v *map[string]interface{}) error {
 		feed, err := fp.Parse(r)
