@@ -10,7 +10,7 @@ import (
 	"github.com/devopsfaith/krakend/proxy"
 	"github.com/devopsfaith/krakend/router/gin"
 
-	"github.com/devopsfaith/krakend-rss"
+	rss "github.com/devopsfaith/krakend-rss"
 )
 
 func main() {
@@ -19,6 +19,11 @@ func main() {
 	debug := flag.Bool("d", false, "Enable the debug")
 	configFile := flag.String("c", "/etc/krakend/configuration.json", "Path to the configuration filename")
 	flag.Parse()
+
+	logger, err := logging.NewLogger(*logLevel, os.Stdout, "[KRAKEND]")
+	if err != nil {
+		log.Fatal("ERROR:", err.Error())
+	}
 
 	rss.Register()
 
@@ -32,27 +37,7 @@ func main() {
 		serviceConfig.Port = *port
 	}
 
-	logger, err := logging.NewLogger(*logLevel, os.Stdout, "[KRAKEND]")
-	if err != nil {
-		log.Fatal("ERROR:", err.Error())
-	}
-
 	gin.DefaultFactory(proxy.DefaultFactory(logger), logger).
 		New().
 		Run(serviceConfig)
-}
-
-// customProxyFactory adds a logging middleware wrapping the internal factory
-type customProxyFactory struct {
-	logger  logging.Logger
-	factory proxy.Factory
-}
-
-// New implements the Factory interface
-func (cf customProxyFactory) New(cfg *config.EndpointConfig) (p proxy.Proxy, err error) {
-	p, err = cf.factory.New(cfg)
-	if err == nil {
-		p = proxy.NewLoggingMiddleware(cf.logger, cfg.Endpoint)(p)
-	}
-	return
 }
