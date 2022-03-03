@@ -3,12 +3,12 @@ package rss
 import (
 	"io"
 
-	"github.com/luraproject/lura/encoding"
+	"github.com/luraproject/lura/v2/encoding"
 	"github.com/mmcdole/gofeed"
 )
 
 func Register() error {
-	return encoding.Register(Name, DecoderFactory)
+	return encoding.GetRegister().Register(Name, DecoderFactory)
 }
 
 // Name is the key for the rss encoding
