@@ -10,7 +10,7 @@ require (
 require (
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
 	github.com/andybalholm/cascadia v1.1.0 // indirect
-	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
+	github.com/krakendio/flatmap v0.0.0-20200601181759-8521186182fc // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
