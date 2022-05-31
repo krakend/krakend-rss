@@ -1,4 +1,4 @@
-module github.com/devopsfaith/krakend-rss/v2
+module github.com/krakendio/krakend-rss/v2
 
 go 1.17
 
