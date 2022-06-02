@@ -1,16 +1,15 @@
-module github.com/devopsfaith/krakend-rss/v2
+module github.com/krakendio/krakend-rss/v2
 
 go 1.17
 
 require (
-	github.com/luraproject/lura/v2 v2.0.0
+	github.com/luraproject/lura/v2 v2.0.0-20220601150625-abb94fb9730d
 	github.com/mmcdole/gofeed v1.1.3
 )
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
 	github.com/andybalholm/cascadia v1.1.0 // indirect
-	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect

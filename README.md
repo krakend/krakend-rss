@@ -7,7 +7,7 @@ Enable RSS encoding in the [KrakenD](github.com/devopsfaith/krakend) framework
 
 ## Documentation
 
-For more details, check the auto-generated documentation: https://godoc.org/github.com/devopsfaith/krakend-rss
+For more details, check the auto-generated documentation: https://godoc.org/github.com/krakendio/krakend-rss
 
 ## Using it
 
@@ -52,7 +52,7 @@ This is an example of a suitable json configuration
 	                    "url_pattern": "/user/schedule/{id}.rss",
 	                    "encoding": "rss",
 	                    "group": "schedule",
-	                    "whitelist": ["items", "title"]
+	                    "allow": ["items", "title"]
 	                },
 	                {
 	                    "host": [
@@ -61,7 +61,7 @@ This is an example of a suitable json configuration
 	                    "url_pattern": "/user/{id}.rss",
 	                    "encoding": "rss",
 	                    "group": "available",
-	                    "whitelist": ["items", "title"]
+	                    "allow": ["items", "title"]
 	                }
 	            ]
 	        }
