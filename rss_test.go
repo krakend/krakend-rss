@@ -61,7 +61,6 @@ func TestEncoder(t *testing.T) {
 	if len(result["items"].([]*gofeed.Item)) != 2 {
 		t.Error("Error unexpected number of result items", result["items"])
 	}
-
 }
 
 func TestEncoder_ko(t *testing.T) {
@@ -72,5 +71,4 @@ func TestEncoder_ko(t *testing.T) {
 	if err := decoder(bytes.NewBuffer([]byte(``)), &result); err == nil {
 		t.Error("The decoder didn't return an error")
 	}
-
 }
