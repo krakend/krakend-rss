@@ -7,7 +7,7 @@ Enable RSS encoding in the [KrakenD](github.com/devopsfaith/krakend) framework
 
 ## Documentation
 
-For more details, check the auto-generated documentation: https://godoc.org/github.com/krakendio/krakend-rss
+For more details, check the auto-generated documentation: https://godoc.org/github.com/krakend/krakend-rss
 
 ## Using it
 
