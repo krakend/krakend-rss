@@ -1,13 +1,13 @@
 Krakend RSS
 ====
 
-Enable RSS encoding in the [KrakenD](github.com/devopsfaith/krakend) framework
+Enable RSS encoding in the [Lura](github.com/luraproject/lura) framework
 
 **Notice: this package requires KrakenD >= 0.4**
 
 ## Documentation
 
-For more details, check the auto-generated documentation: https://godoc.org/github.com/krakendio/krakend-rss
+For more details, check the auto-generated documentation: https://godoc.org/github.com/krakend/krakend-rss
 
 ## Using it
 
