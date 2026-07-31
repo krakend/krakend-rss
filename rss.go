@@ -3,7 +3,7 @@ package rss
 import (
 	"io"
 
-	"github.com/luraproject/lura/v2/encoding"
+	"github.com/luraproject/lura/v3/encoding"
 	"github.com/mmcdole/gofeed"
 )
 
@@ -24,7 +24,7 @@ func NewDecoder() func(io.Reader, *map[string]interface{}) error {
 		if err != nil {
 			return err
 		}
-		*(v) = map[string]interface{}{
+		*v = map[string]interface{}{
 			"items":       feed.Items,
 			"author":      feed.Author,
 			"categories":  feed.Categories,
